@@ -1,74 +1,108 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Srikar — Data Engineer (Mid‑Level)</title>
-<meta name="description" content="Portfolio of Srikar, mid‑level Data Engineer specializing in PySpark, Kafka, Airflow, and lakehouse architectures.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Srikar — Data Engineer Portfolio</title>
+<meta name="description" content="Srikar • Mid-level Data Engineer: PySpark, Kafka, Airflow, Lakehouse, Azure/AWS.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19h16'/%3E%3Cpath d='M5 4v15h14V4z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3C/svg%3E">
 <style>
   :root {
-    --bg: #0b0c10;
-    --card: #15171c;
-    --text: #e6e6e6;
-    --muted: #a9b0be;
-    --accent: #60a5fa;
-    --border: #242731;
+    --bg: radial-gradient(1200px 800px at 10% 10%, #0b1220 0%, #070b14 40%, #04070d 100%);
+    --text: #e7ebf3; --muted: #a1a8b6; --card: rgba(255,255,255,0.06); --card-border: rgba(255,255,255,0.08);
+    --accent: #7dd3fc; --accent2: #a78bfa; --shadow: 0 10px 25px rgba(124,58,237,.25), 0 8px 40px rgba(14,165,233,.2);
   }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: radial-gradient(1200px 800px at 10% 10%, #ecf3ff 0%, #e7efff 40%, #e8ecf8 100%);
+      --text:#0b1220; --muted:#3f4858; --card: rgba(255,255,255,0.7); --card-border: rgba(15,23,42,0.08);
+      --accent:#0284c7; --accent2:#7c3aed;
+    }
+  }
+  * { box-sizing:border-box; } html, body { height: 100%; }
+  body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--text); overflow-x:hidden; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
-  .hero { display:grid; gap:18px; grid-template-columns: 1fr; }
-  @media(min-width: 900px) { .hero { grid-template-columns: 2fr 1fr; align-items: start; } }
-  h1 { font-size: 34px; margin: 0 0 6px; }
-  p { line-height: 1.55; }
+  .hero { position:relative; display:grid; gap:20px; grid-template-columns: 1.2fr 0.8fr; align-items:center; min-height:70vh; }
+  @media (max-width: 900px) { .hero { grid-template-columns:1fr; min-height:auto; } }
+  .blob { position:absolute; inset:-10% -10% auto auto; width:520px; height:520px; filter:blur(40px); opacity:.5;
+           background: radial-gradient(closest-side, rgba(124,58,237,.5), transparent 70%), radial-gradient(closest-side, rgba(14,165,233,.4), transparent 60%);
+           animation: float 12s ease-in-out infinite; transform: translateZ(0); }
+  @keyframes float { 0%{transform:translate(0,0)} 50%{transform:translate(10px,-20px)} 100%{transform:translate(0,0)} }
+  .card { backdrop-filter: blur(12px); background: var(--card); border:1px solid var(--card-border); border-radius:18px; padding:18px; box-shadow: var(--shadow); }
   .muted { color: var(--muted); }
-  .btn { display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--border); color:var(--text); text-decoration:none; }
-  .btn:hover { border-color: var(--accent); color: white; }
-  .badge { display:inline-block; padding:6px 10px; border:1px solid var(--border); border-radius:999px; font-size:12px; margin: 6px 6px 0 0; color: var(--muted);}
-  .card { background: var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; }
-  .grid { display:grid; gap:18px; }
-  .grid-3 { grid-template-columns: repeat(1, 1fr); }
-  @media(min-width: 900px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
-  .grid-2 { grid-template-columns: repeat(1, 1fr); }
-  @media(min-width: 900px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
-  ul { margin:8px 0 0; padding-left: 20px; }
-  footer { color: var(--muted); font-size: 14px; padding: 30px 0; }
-  a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .pill { display:inline-block; padding:4px 8px; border:1px solid var(--border); border-radius:999px; margin:4px; font-size:12px; color: var(--muted);}
-  .title-sm { font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .badge { display:inline-block; padding:6px 10px; border:1px solid var(--card-border); border-radius:999px; margin: 6px 8px 0 0; font-size:12px; }
+  .buttons a { display:inline-block; padding:12px 16px; border-radius:12px; text-decoration:none; color:var(--text); border:1px solid var(--card-border); margin-right:10px; transition: transform .2s ease, box-shadow .2s ease, background .2s; }
+  .buttons a:hover { transform: translateY(-2px); box-shadow: var(--shadow); background: rgba(255,255,255,0.06); }
+  .grid { display:grid; gap:18px; } .g-2 { grid-template-columns: repeat(2, 1fr); } .g-3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px) { .g-2, .g-3 { grid-template-columns: 1fr; } }
+  h1 { font-size: 42px; margin: 0 0 10px; line-height:1.1; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent)); -webkit-background-clip:text; background-clip:text; color: transparent; background-size:200% 200%; animation: hue 6s ease-in-out infinite; }
+  @keyframes hue { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+  h2 { font-size: 22px; margin: 10px 0; } h3 { font-size: 18px; margin: 0 0 8px; } ul { margin:8px 0 0; padding-left:20px; }
+  .pill { display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--card-border); margin:4px; color:var(--muted); font-size:12px; }
+  footer { color: var(--muted); font-size: 14px; padding: 30px 0; text-align:center; }
+  .reveal { opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; } .reveal.visible { opacity:1; transform: translateY(0); }
 </style>
 </head>
 <body>
+  <div class="blob" aria-hidden="true"></div>
   <div class="wrap">
     <section class="hero">
-      <div>
-        <h1>Srikar — Data Engineer (Mid‑Level)</h1>
-        <p class="muted">I design reliable batch + streaming data pipelines with PySpark, Kafka/Event Hubs, Airflow/ADF, and lakehouse patterns (Delta/Parquet). Recently built a real‑time healthcare alerts pipeline and a finance fraud ELT.</p>
-        <div>
-          <span class="badge">Low‑latency streaming</span>
+      <div class="reveal">
+        <h1>Srikar — Data Engineer</h1>
+        <p class="muted" style="max-width:640px">I build smooth, reliable data systems across streaming & batch with a lakehouse mindset (Delta/Parquet). I ship pragmatic PySpark, Kafka/Event Hubs, Airflow/ADF, CI/CD, and data quality by default.</p>
+        <div style="margin-top:8px">
+          <span class="badge">Low-latency streaming</span>
           <span class="badge">Bronze/Silver/Gold</span>
-          <span class="badge">PySpark‑first</span>
-          <span class="badge">Cloud‑ready</span>
+          <span class="badge">PySpark-first</span>
+          <span class="badge">Cloud-ready</span>
         </div>
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="sandbox:/mnt/data/Srikar_Kotamraju_Resume.html" target="_blank">Download Resume</a>
-          <a class="btn" href="https://www.linkedin.com/in/your-handle/" target="_blank">LinkedIn</a>
-          <a class="btn" href="https://github.com/your-username" target="_blank">GitHub</a>
+        <div class="buttons" style="margin-top:14px">
+          <a href="./Srikar_Kotamraju_Resume.html" target="_blank" rel="noreferrer">📄 Resume</a>
+          <a href="https://github.com/SrikarK21" target="_blank" rel="noreferrer">💻 GitHub</a>
+          <a href="https://www.linkedin.com/in/your-handle/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
         </div>
       </div>
-      <div class="card">
-        <div class="title-sm">Contact</div>
-        <p><strong>Email:</strong> <a href="mailto:srikark1982@gmail.com">srikark1982@gmail.com</a><br/>
-        <strong>Phone:</strong> +1 (XXX) XXX‑XXXX<br/>
-        <strong>Location:</strong> Texas, USA</p>
+      <div class="card reveal">
+        <div class="muted" style="text-transform:uppercase; letter-spacing:.08em; font-weight:600">Contact</div>
+        <div style="margin-top:8px; line-height:1.7">
+          <div><strong>Email:</strong> <a href="mailto:srikark1982@gmail.com" style="color:var(--accent)">srikark1982@gmail.com</a></div>
+          <div><strong>Phone:</strong> +1 (XXX) XXX-XXXX</div>
+          <div><strong>Location:</strong> Texas, USA</div>
+        </div>
       </div>
     </section>
 
-    <section style="margin-top:26px;">
-      <div class="title-sm">Skills</div>
+    <section class="reveal">
+      <h2>Featured Projects</h2>
+      <div class="grid g-2">
+        <div class="card">
+          <h3>Real-Time Patient Vitals Pipeline (Healthcare)</h3>
+          <p class="muted">Kafka → PySpark Structured Streaming → Bronze/Silver/Gold + Data Quality</p>
+          <ul>
+            <li>Python producer → Kafka; alert logic (HR, SpO₂, Temp) in streaming job</li>
+            <li>Layered Parquet outputs; simple DQ on Silver</li>
+            <li>Cloud path: Event Hubs + Databricks + Delta + Power BI</li>
+          </ul>
+          <div class="buttons" style="margin-top:10px">
+            <a href="https://github.com/SrikarK21/demo-de-portfolio" target="_blank">View Repo</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Fraud Detection Batch ELT (Finance)</h3>
+          <p class="muted">Airflow‑orchestrated PySpark ELT → Bronze/Silver/Gold with Fraud Flags</p>
+          <ul>
+            <li>Synthetic 100k tx/day; features (hour, weekday, channel, foreign e‑com)</li>
+            <li>Rule‑based score to flag likely fraud; DQ checks integrated</li>
+            <li>Cloud path: ADF + Databricks + Delta/Snowflake</li>
+          </ul>
+          <div class="buttons" style="margin-top:10px">
+            <a href="https://github.com/SrikarK21/demo-de-portfolio" target="_blank">View Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>Skills</h2>
       <div class="card">
         <div>
           <span class="pill">PySpark</span><span class="pill">Python</span><span class="pill">SQL</span>
@@ -80,36 +114,10 @@
       </div>
     </section>
 
-    <section style="margin-top:26px;">
-      <h2 style="margin:0 0 10px;">Featured Projects</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 style="margin:0;">Real‑Time Patient Vitals Pipeline (Healthcare)</h3>
-          <p class="muted">Kafka → PySpark Structured Streaming → Bronze/Silver/Gold + Data Quality</p>
-          <ul>
-            <li>Python producer → Kafka; alert logic (HR, SpO₂, Temp) in streaming job</li>
-            <li>Layered Parquet outputs; simple DQ on Silver</li>
-            <li>Cloud path: Event Hubs + Databricks + Delta + Power BI</li>
-          </ul>
-          <p><a href="sandbox:/mnt/data/patient-vitals-realtime.zip">Download Project ZIP</a></p>
-        </div>
-        <div class="card">
-          <h3 style="margin:0;">Fraud Detection Batch ELT (Finance)</h3>
-          <p class="muted">Airflow‑orchestrated PySpark ELT → Bronze/Silver/Gold with Fraud Flags</p>
-          <ul>
-            <li>Synthetic 100k tx/day; features (hour, weekday, channel, foreign e‑com)</li>
-            <li>Rule‑based score to flag likely fraud; DQ checks integrated</li>
-            <li>Cloud path: ADF + Databricks + Delta/Snowflake</li>
-          </ul>
-          <p><a href="sandbox:/mnt/data/fraud-detection-batch.zip">Download Project ZIP</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section style="margin-top:26px;">
-      <div class="title-sm">Experience Snapshot</div>
+    <section class="reveal">
+      <h2>Experience Snapshot</h2>
       <div class="card">
-        <p class="muted">8+ years across data engineering and analytics in healthcare, finance, insurance, retail and marketing datasets. Built pipelines on Azure/AWS, automated ELT/CI/CD, and partnered with DS to productionize models.</p>
+        <p class="muted">8+ years across data engineering and analytics in healthcare, finance, insurance, retail & marketing datasets. Built pipelines on Azure/AWS, automated ELT/CI/CD, and partnered with DS to productionize models.</p>
         <ul>
           <li>Batch + streaming pipelines (Kafka, ADF, Databricks, PySpark)</li>
           <li>Governance & quality (Great Expectations, contracts, monitoring)</li>
@@ -119,9 +127,14 @@
       </div>
     </section>
 
-    <footer>
-      © 2025-08-08 Srikar — Open to Mid‑Level Data Engineer roles
-    </footer>
+    <footer class="reveal">© 2025-08-08 • Srikar — Open to Mid‑Level Data Engineer roles</footer>
   </div>
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>

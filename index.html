@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Srikar — Data Engineer (Mid‑Level)</title>
+<meta name="description" content="Portfolio of Srikar, mid‑level Data Engineer specializing in PySpark, Kafka, Airflow, and lakehouse architectures.">
+<style>
+  :root {
+    --bg: #0b0c10;
+    --card: #15171c;
+    --text: #e6e6e6;
+    --muted: #a9b0be;
+    --accent: #60a5fa;
+    --border: #242731;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+  .hero { display:grid; gap:18px; grid-template-columns: 1fr; }
+  @media(min-width: 900px) { .hero { grid-template-columns: 2fr 1fr; align-items: start; } }
+  h1 { font-size: 34px; margin: 0 0 6px; }
+  p { line-height: 1.55; }
+  .muted { color: var(--muted); }
+  .btn { display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--border); color:var(--text); text-decoration:none; }
+  .btn:hover { border-color: var(--accent); color: white; }
+  .badge { display:inline-block; padding:6px 10px; border:1px solid var(--border); border-radius:999px; font-size:12px; margin: 6px 6px 0 0; color: var(--muted);}
+  .card { background: var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; }
+  .grid { display:grid; gap:18px; }
+  .grid-3 { grid-template-columns: repeat(1, 1fr); }
+  @media(min-width: 900px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .grid-2 { grid-template-columns: repeat(1, 1fr); }
+  @media(min-width: 900px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+  ul { margin:8px 0 0; padding-left: 20px; }
+  footer { color: var(--muted); font-size: 14px; padding: 30px 0; }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .pill { display:inline-block; padding:4px 8px; border:1px solid var(--border); border-radius:999px; margin:4px; font-size:12px; color: var(--muted);}
+  .title-sm { font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Srikar — Data Engineer (Mid‑Level)</h1>
+        <p class="muted">I design reliable batch + streaming data pipelines with PySpark, Kafka/Event Hubs, Airflow/ADF, and lakehouse patterns (Delta/Parquet). Recently built a real‑time healthcare alerts pipeline and a finance fraud ELT.</p>
+        <div>
+          <span class="badge">Low‑latency streaming</span>
+          <span class="badge">Bronze/Silver/Gold</span>
+          <span class="badge">PySpark‑first</span>
+          <span class="badge">Cloud‑ready</span>
+        </div>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="sandbox:/mnt/data/Srikar_Kotamraju_Resume.html" target="_blank">Download Resume</a>
+          <a class="btn" href="https://www.linkedin.com/in/your-handle/" target="_blank">LinkedIn</a>
+          <a class="btn" href="https://github.com/your-username" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="title-sm">Contact</div>
+        <p><strong>Email:</strong> <a href="mailto:srikark1982@gmail.com">srikark1982@gmail.com</a><br/>
+        <strong>Phone:</strong> +1 (XXX) XXX‑XXXX<br/>
+        <strong>Location:</strong> Texas, USA</p>
+      </div>
+    </section>
+
+    <section style="margin-top:26px;">
+      <div class="title-sm">Skills</div>
+      <div class="card">
+        <div>
+          <span class="pill">PySpark</span><span class="pill">Python</span><span class="pill">SQL</span>
+          <span class="pill">Kafka/Event Hubs</span><span class="pill">Airflow</span><span class="pill">Azure Data Factory</span>
+          <span class="pill">Databricks</span><span class="pill">Delta/Parquet</span><span class="pill">Lakehouse</span>
+          <span class="pill">dbt</span><span class="pill">Snowflake</span><span class="pill">Power BI</span>
+          <span class="pill">CI/CD</span><span class="pill">Docker</span><span class="pill">Terraform (basic)</span>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:26px;">
+      <h2 style="margin:0 0 10px;">Featured Projects</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 style="margin:0;">Real‑Time Patient Vitals Pipeline (Healthcare)</h3>
+          <p class="muted">Kafka → PySpark Structured Streaming → Bronze/Silver/Gold + Data Quality</p>
+          <ul>
+            <li>Python producer → Kafka; alert logic (HR, SpO₂, Temp) in streaming job</li>
+            <li>Layered Parquet outputs; simple DQ on Silver</li>
+            <li>Cloud path: Event Hubs + Databricks + Delta + Power BI</li>
+          </ul>
+          <p><a href="sandbox:/mnt/data/patient-vitals-realtime.zip">Download Project ZIP</a></p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0;">Fraud Detection Batch ELT (Finance)</h3>
+          <p class="muted">Airflow‑orchestrated PySpark ELT → Bronze/Silver/Gold with Fraud Flags</p>
+          <ul>
+            <li>Synthetic 100k tx/day; features (hour, weekday, channel, foreign e‑com)</li>
+            <li>Rule‑based score to flag likely fraud; DQ checks integrated</li>
+            <li>Cloud path: ADF + Databricks + Delta/Snowflake</li>
+          </ul>
+          <p><a href="sandbox:/mnt/data/fraud-detection-batch.zip">Download Project ZIP</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:26px;">
+      <div class="title-sm">Experience Snapshot</div>
+      <div class="card">
+        <p class="muted">8+ years across data engineering and analytics in healthcare, finance, insurance, retail and marketing datasets. Built pipelines on Azure/AWS, automated ELT/CI/CD, and partnered with DS to productionize models.</p>
+        <ul>
+          <li>Batch + streaming pipelines (Kafka, ADF, Databricks, PySpark)</li>
+          <li>Governance & quality (Great Expectations, contracts, monitoring)</li>
+          <li>Lakehouse optimizations with partitioning & Z‑ordering</li>
+          <li>Dashboards & SQL endpoints for BI (Power BI/Tableau)</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © 2025-08-08 Srikar — Open to Mid‑Level Data Engineer roles
+    </footer>
+  </div>
+</body>
+</html>
